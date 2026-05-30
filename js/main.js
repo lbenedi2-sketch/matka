@@ -24,11 +24,32 @@
     });
   }
 
-  document.querySelector(".cta-form")?.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const input = this.querySelector('input[type="email"]');
-    if (input && input.value) {
-      alert("Thanks — prototype form only. Connect your endpoint to capture: " + input.value);
-    }
-  });
+  const ctaForm = document.querySelector(".cta-form");
+
+  if (ctaForm) {
+    const input = ctaForm.querySelector('input[type="email"]');
+    const button = ctaForm.querySelector("button");
+
+    const showPrototypeMessage = function () {
+      if (!input) {
+        return;
+      }
+
+      if (typeof input.reportValidity === "function" && !input.reportValidity()) {
+        return;
+      }
+
+      if (input.value) {
+        alert("Thanks — prototype form only. Connect your endpoint to capture: " + input.value);
+      }
+    };
+
+    button?.addEventListener("click", showPrototypeMessage);
+    input?.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        showPrototypeMessage();
+      }
+    });
+  }
 })();

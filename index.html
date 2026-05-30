@@ -309,16 +309,16 @@
         </div>
       </section>
 
-      <section id="contact" class="section cta-band">
+      <section id="contact" class="section cta-band" aria-labelledby="contact-title">
         <div class="container cta-inner">
           <div>
-            <h2>Be first when Matka ships.</h2>
+            <h2 id="contact-title">Be first when Matka ships.</h2>
             <p class="section-lead">
               Leave your email for updates—or open the Figma and brief from the
               footer to dive deeper.
             </p>
           </div>
-          <form class="cta-form" action="#" method="post">
+          <div class="cta-form" role="group" aria-label="Waitlist signup">
             <label class="sr-only" for="email">Email</label>
             <input
               id="email"
@@ -328,8 +328,8 @@
               placeholder="Email"
               required
             />
-            <button type="submit" class="btn btn-primary">Notify me</button>
-          </form>
+            <button type="button" class="btn btn-primary">Notify me</button>
+          </div>
           <p class="muted small centered full-row">
             Prototype form: connect your endpoint when you are ready.
           </p>
